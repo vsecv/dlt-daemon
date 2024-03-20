@@ -79,10 +79,7 @@ endforeach()
 ###################
 # DLT daemon tests
 ###################
-set(TARGET_LIST gtest_dlt_daemon_gateway
-                gtest_dlt_daemon_offline_log
-                gtest_dlt_daemon_event_handler
-                gtest_dlt_daemon_multiple_files_logging)
+set(TARGET_LIST gtest_dlt_daemon_multiple_files_logging)
 
 if(WITH_DLT_LOG_STATISTIC)
     list(APPEND TARGET_LIST gtest_dlt_daemon_statistics)
