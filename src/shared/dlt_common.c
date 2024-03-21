@@ -24,6 +24,7 @@
  *
  * \file dlt_common.c
  */
+#define DLT_USER_IPC_PATH "/tmp"
 
 #include <stdio.h>
 #include <stdlib.h>   /* for malloc(), free() */
