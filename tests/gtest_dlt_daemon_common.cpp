@@ -262,50 +262,7 @@ TEST(t_dlt_daemon_application_add, normal)
     EXPECT_LE(0, dlt_daemon_applications_clear(&daemon, ecu, 0));
     EXPECT_EQ(0, dlt_daemon_free(&daemon, 0));
 }
-TEST(t_dlt_daemon_application_add, abnormal)
-{
-/*    DltDaemon daemon; */
-/*    const char * apid = "TEST"; */
-/*    pid_t pid = 0; */
-/*    const char * desc = "HELLO_TEST"; */
-/*    DltDaemonApplication *app = NULL; */
 
-    /* Add the same application with same pid twice */
-/*    EXPECT_EQ(0, dlt_daemon_init(&daemon, DLT_DAEMON_RINGBUFFER_MIN_SIZE, DLT_DAEMON_RINGBUFFER_MAX_SIZE, DLT_DAEMON_RINGBUFFER_STEP_SIZE, DLT_RUNTIME_DEFAULT_DIRECTORY,DLT_LOG_INFO, DLT_TRACE_STATUS_OFF,0,0)); */
-/*    app = dlt_daemon_application_add(&daemon,(char *) apid, pid, (char *) desc, 0); */
-/*    EXPECT_LE((DltDaemonApplication *) 0, app); */
-/*    app = dlt_daemon_application_add(&daemon,(char *) apid, pid, (char *) desc, 0); */
-/*    EXPECT_EQ((DltDaemonApplication *) 0, app); */
-/*    dlt_daemon_application_del(&daemon,app, 0); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-
-    /* Add the same applicaiotn with different pid */
-/*    app = dlt_daemon_application_add(&daemon,(char *) apid, 0, (char *) desc, 0); */
-/*    EXPECT_LE((DltDaemonApplication *) 0, app); */
-/*    app = dlt_daemon_application_add(&daemon,(char *) apid, 123, (char *) desc, 0); */
-/*    EXPECT_EQ((DltDaemonApplication *) 0, app); */
-/*    dlt_daemon_application_del(&daemon,app, 0); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-
-
-    /* verbose value != 0 or 1 */
-/*    app = dlt_daemon_application_add(&daemon,(char *) apid, pid, (char *) desc, 0); */
-/*    EXPECT_EQ((DltDaemonApplication *)0, dlt_daemon_application_add(&daemon,(char *) apid, pid, (char *) desc, 12345678)); */
-/*    dlt_daemon_application_del(&daemon, app, 0); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-
-    /* Apid < 4, expected fill to 4 chars or error */
-/*    apid = "SH"; */
-/*    app = dlt_daemon_application_add(&daemon,(char *) apid, pid, (char *) desc, 0); */
-/*    char tmp[5]; */
-/*    strncpy(tmp, apid, 4); */
-/*    tmp[4] = '\0'; */
-/*    EXPECT_STREQ(tmp, app->apid); */
-/*    dlt_daemon_application_del(&daemon, app, 0); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-/*    EXPECT_EQ(0, dlt_daemon_free(&daemon, 0)); */
-
-}
 TEST(t_dlt_daemon_application_add, nullpointer)
 {
     DltDaemon daemon;
@@ -355,32 +312,7 @@ TEST(t_dlt_daemon_application_del, normal)
     EXPECT_EQ(0, dlt_daemon_free(&daemon, 0));
 }
 
-TEST(t_dlt_daemon_application_del, abnormal)
-{
-/*    DltDaemon daemon; */
-/*    const char * apid = "TEST"; */
-/*    pid_t pid = 0; */
-/*    const char * desc = "HELLO_TEST"; */
-/*    DltDaemonApplication *app = NULL; */
 
-    /* no application exists, expect < 0 */
-/*    EXPECT_EQ(0, dlt_daemon_init(&daemon, DLT_DAEMON_RINGBUFFER_MIN_SIZE, DLT_DAEMON_RINGBUFFER_MAX_SIZE, DLT_DAEMON_RINGBUFFER_STEP_SIZE, DLT_RUNTIME_DEFAULT_DIRECTORY,DLT_LOG_INFO, DLT_TRACE_STATUS_OFF,0,0)); */
-/*    EXPECT_GE(-1, dlt_daemon_application_del(&daemon, app, 0)); */
-
-    /* Call delete two times */
-/*    app = dlt_daemon_application_add(&daemon,(char *) apid, pid, (char *) desc, 0); */
-/*    EXPECT_LE(0, dlt_daemon_application_del(&daemon,app, 0)); */
-/*    EXPECT_GE(-1, dlt_daemon_application_del(&daemon,app, 0)); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-
-
-    /* Verbose parameter != 0 or 1 */
-/*    app = dlt_daemon_application_add(&daemon,(char *) apid, pid, (char *) desc, 0); */
-/*    EXPECT_GE(-1, dlt_daemon_application_del(&daemon,app, 123456789)); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-/*    EXPECT_EQ(0, dlt_daemon_free(&daemon, 0)); */
-
-}
 TEST(t_dlt_daemon_application_del, nullpointer)
 {
     DltDaemon daemon;
@@ -435,24 +367,7 @@ TEST(t_dlt_daemon_application_find, normal)
     EXPECT_LE(0, dlt_daemon_applications_clear(&daemon, ecu, 0));
     EXPECT_EQ(0, dlt_daemon_free(&daemon, 0));
 }
-TEST(t_dlt_daemon_application_find, abnormal)
-{
-/*    DltDaemon daemon; */
-/*    const char * apid = "TEST"; */
-/*    pid_t pid = 0; */
-/*    const char * desc = "HELLO_TEST"; */
-/*    DltDaemonApplication *app = NULL; */
 
-    /* Verbose != 0 or 1, expect error */
-/*    EXPECT_EQ(0, dlt_daemon_init(&daemon, DLT_DAEMON_RINGBUFFER_MIN_SIZE, DLT_DAEMON_RINGBUFFER_MAX_SIZE, DLT_DAEMON_RINGBUFFER_STEP_SIZE, DLT_RUNTIME_DEFAULT_DIRECTORY,DLT_LOG_INFO, DLT_TRACE_STATUS_OFF,0,0)); */
-/*    app = dlt_daemon_application_add(&daemon,(char *) apid, pid, (char *) desc, 0); */
-/*    dlt_daemon_application_find(&daemon, (char *) apid, 0); */
-/*    EXPECT_EQ((DltDaemonApplication *) 0, dlt_daemon_application_find(&daemon, (char *) apid, 123456789)); */
-/*    dlt_daemon_application_del(&daemon, app, 0); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-/*    EXPECT_EQ(0, dlt_daemon_free(&daemon, 0)); */
-
-}
 TEST(t_dlt_daemon_application_find, nullpointer)
 {
     DltDaemon daemon;
@@ -491,29 +406,13 @@ TEST(t_dlt_daemon_applications_clear, normal)
     EXPECT_LE(0, dlt_daemon_applications_clear(&daemon, ecu, 0));
     EXPECT_EQ(0, dlt_daemon_free(&daemon, 0));
 }
-TEST(t_dlt_daemon_applications_clear, abnormal)
-{
-/*    DltDaemon daemon; */
-/*    pid_t pid = 0; */
 
-    /* No applications added, expect < -1 */
-/*    EXPECT_EQ(0, dlt_daemon_init(&daemon, DLT_DAEMON_RINGBUFFER_MIN_SIZE, DLT_DAEMON_RINGBUFFER_MAX_SIZE, DLT_DAEMON_RINGBUFFER_STEP_SIZE, DLT_RUNTIME_DEFAULT_DIRECTORY,DLT_LOG_INFO, DLT_TRACE_STATUS_OFF,0,0)); */
-/*    EXPECT_GE(-1, dlt_daemon_applications_clear(&daemon, 0)); */
-
-    /* Verbose != 0 or 1, expect error */
-/*    dlt_daemon_application_add(&daemon, (char *) "TEST", pid, (char *) "Test clear", 0); */
-/*    EXPECT_GE(-1, dlt_daemon_applications_clear(&daemon, 123456789)); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-/*    EXPECT_EQ(0, dlt_daemon_free(&daemon, 0)); */
-}
 TEST(t_dlt_daemon_applications_clear, nullpointer)
 {
     /* NULL-Pointer, expect < 0 */
     EXPECT_GE(-1, dlt_daemon_applications_clear(NULL, NULL, 0));
 }
 /* End Method: dlt_daemon_common::dlt_daemon_applications_clear */
-
-
 
 /* Begin Method: dlt_daemon_common::dlt_daemon_applications_invalidate_fd */
 TEST(t_dlt_daemon_applications_invalidate_fd, normal)
@@ -541,34 +440,13 @@ TEST(t_dlt_daemon_applications_invalidate_fd, normal)
     EXPECT_LE(0, dlt_daemon_applications_clear(&daemon, ecu, 0));
     EXPECT_EQ(0, dlt_daemon_free(&daemon, 0));
 }
-TEST(t_dlt_daemon_applications_invalidate_fd, abnormal)
-{
-/*    DltDaemon daemon; */
-/*    const char * apid = "TEST"; */
-/*    pid_t pid = 0; */
-/*    const char * desc = "HELLO_TEST"; */
-/*    DltDaemonApplication *app = NULL; */
 
-    /* Daemon isn't initialized, expected error */
-/*    EXPECT_EQ(0, dlt_daemon_init(&daemon, DLT_DAEMON_RINGBUFFER_MIN_SIZE, DLT_DAEMON_RINGBUFFER_MAX_SIZE, DLT_DAEMON_RINGBUFFER_STEP_SIZE, DLT_RUNTIME_DEFAULT_DIRECTORY,DLT_LOG_INFO, DLT_TRACE_STATUS_OFF,0,0)); */
-/*    EXPECT_GE(-1, dlt_daemon_applications_invalidate_fd(&daemon, 0, 0)); */
-
-    /* Verbose != 0 or 1, expect error */
-/*    app = dlt_daemon_application_add(&daemon,(char *) apid, pid, (char *) desc, 0); */
-/*    EXPECT_GE(-1, dlt_daemon_applications_invalidate_fd(&daemon, app->user_handle, 123456789)); */
-/*    dlt_daemon_application_del(&daemon, app, 0); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-/*    EXPECT_EQ(0, dlt_daemon_free(&daemon, 0)); */
-}
 TEST(t_dlt_daemon_applications_invalidate_fd, nullpointer)
 {
     /* NULL-Pointer */
     EXPECT_GE(-1, dlt_daemon_applications_invalidate_fd(NULL, NULL, 0, 0));
 }
 /* End Method: dlt_daemon_common::dlt_daemon_applications_invalidate_fd */
-
-
-
 
 /* Begin Method: dlt_daemon_common::dlt_daemon_applications_save */
 TEST(t_dlt_daemon_applications_save, normal)
@@ -597,32 +475,7 @@ TEST(t_dlt_daemon_applications_save, normal)
     EXPECT_LE(0, dlt_daemon_applications_clear(&daemon, ecu, 0));
     EXPECT_EQ(0, dlt_daemon_free(&daemon, 0));
 }
-TEST(t_dlt_daemon_applications_save, abnormal)
-{
-/*    DltDaemon daemon; */
-/*    const char * apid = "TEST"; */
-/*    pid_t pid = 0; */
-/*    const char * desc = "HELLO_TEST"; */
-/*    DltDaemonApplication *app = NULL; */
-/*    const char * filename = "/tmp/dlt-runtime.cfg"; */
 
-    /* Uninitialized */
-/*    EXPECT_EQ(0, dlt_daemon_init(&daemon, DLT_DAEMON_RINGBUFFER_MIN_SIZE, DLT_DAEMON_RINGBUFFER_MAX_SIZE, DLT_DAEMON_RINGBUFFER_STEP_SIZE, DLT_RUNTIME_DEFAULT_DIRECTORY,DLT_LOG_INFO, DLT_TRACE_STATUS_OFF,0,0)); */
-/*    EXPECT_GE(-1, dlt_daemon_applications_save(&daemon, (char *) filename, 0)); */
-
-    /* Verbose != 1 or 0, expect error */
-/*    app = dlt_daemon_application_add(&daemon,(char *) apid, pid, (char *) desc, 0); */
-/*    EXPECT_GE(-1, dlt_daemon_applications_save(&daemon, (char *) filename, 123456789)); */
-/*    dlt_daemon_application_del(&daemon, app, 0); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-
-    /* Wrong path filename */
-/*    app = dlt_daemon_application_add(&daemon,(char *) apid, pid, (char *) desc, 0); */
-/*    EXPECT_GE(-1, dlt_daemon_applications_save(&daemon, (char *) "PATH_DONT_EXIST", 0)); */
-/*    dlt_daemon_application_del(&daemon, app, 0); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-/*    EXPECT_EQ(0, dlt_daemon_free(&daemon, 0)); */
-}
 TEST(t_dlt_daemon_applications_save, nullpointer)
 {
     DltDaemon daemon;
@@ -657,32 +510,7 @@ TEST(t_dlt_daemon_applications_load, normal)
     EXPECT_LE(0, dlt_daemon_applications_load(&daemon, (char *)filename, 0));
     EXPECT_EQ(0, dlt_daemon_free(&daemon, 0));
 }
-TEST(t_dlt_daemon_applications_load, abnormal)
-{
-/*    DltDaemon daemon; */
-/*    const char * apid = "TEST"; */
-/*    pid_t pid = 0; */
-/*    const char * desc = "HELLO_TEST"; */
-/*    DltDaemonApplication *app = NULL; */
-/*    const char * filename = "/tmp/dlt-runtime.cfg"; */
 
-    /* Uninitialized */
-/*    EXPECT_EQ(0, dlt_daemon_init(&daemon, DLT_DAEMON_RINGBUFFER_MIN_SIZE, DLT_DAEMON_RINGBUFFER_MAX_SIZE, DLT_DAEMON_RINGBUFFER_STEP_SIZE, DLT_RUNTIME_DEFAULT_DIRECTORY,DLT_LOG_INFO, DLT_TRACE_STATUS_OFF,0,0)); */
-/*    EXPECT_GE(-1, dlt_daemon_applications_load(&daemon, (char *) filename, 0)); */
-
-    /* Verbose != 1 or 0, expect error */
-/*    app = dlt_daemon_application_add(&daemon,(char *) apid, pid, (char *) desc, 0); */
-/*    EXPECT_GE(-1, dlt_daemon_applications_load(&daemon, (char *) filename, 123456789)); */
-/*    dlt_daemon_application_del(&daemon, app, 0); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-
-    /* Wrong path filename */
-/*    app = dlt_daemon_application_add(&daemon,(char *) apid, pid, (char *) desc, 0); */
-/*    EXPECT_GE(-1, dlt_daemon_applications_load(&daemon, (char *) "PATH_DONT_EXIST", 0)); */
-/*    dlt_daemon_application_del(&daemon, app, 0); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-/*    EXPECT_EQ(0, dlt_daemon_free(&daemon, 0)); */
-}
 TEST(t_dlt_daemon_applications_load, nullpointer)
 {
     DltDaemon daemon;
@@ -696,12 +524,9 @@ TEST(t_dlt_daemon_applications_load, nullpointer)
 /* End Method: dlt_daemon_common::dlt_daemon_applications_load */
 
 
-
-
 /*##############################################################################################################################*/
 /*##############################################################################################################################*/
 /*##############################################################################################################################*/
-
 
 
 
@@ -963,42 +788,7 @@ TEST(t_dlt_daemon_context_del, normal)
     EXPECT_LE(0, dlt_daemon_applications_clear(&daemon, ecu, 0));
     EXPECT_EQ(0, dlt_daemon_free(&daemon, 0));
 }
-TEST(t_dlt_daemon_context_del, abnormal)
-{
-/*    DltDaemon daemon; */
-/*    ID4 apid = "TES"; */
-/*    ID4 ctid = "CON"; */
-/*    char desc[255] = "TEST dlt_daemon_context_add"; */
-/*    DltDaemonContext *daecontext; */
-/*    DltDaemonApplication *app; */
 
-    /* Context uninitialized */
-/*    EXPECT_EQ(0, dlt_daemon_init(&daemon, DLT_DAEMON_RINGBUFFER_MIN_SIZE, DLT_DAEMON_RINGBUFFER_MAX_SIZE, DLT_DAEMON_RINGBUFFER_STEP_SIZE, DLT_RUNTIME_DEFAULT_DIRECTORY,DLT_LOG_INFO, DLT_TRACE_STATUS_OFF,0,0)); */
-/*    EXPECT_GE(-1, dlt_daemon_context_del(&daemon, daecontext, 0)); */
-
-    /* No application used */
-/*    daecontext = dlt_daemon_context_add(&daemon,apid,ctid,DLT_LOG_DEFAULT,DLT_TRACE_STATUS_DEFAULT,0,0,desc,0); */
-/*    EXPECT_GE(-1, dlt_daemon_context_del(&daemon, daecontext, 0)); */
-/*    EXPECT_GE(-1, dlt_daemon_application_del(&daemon, app, 0)); */
-/*    EXPECT_LE(0, dlt_daemon_contexts_clear(&daemon, 0)); */
-/*    EXPECT_LE(0, dlt_daemon_applications_clear(&daemon, 0)); */
-
-    /* No contex added */
-/*    app = dlt_daemon_application_add(&daemon, apid, 0, desc, 0); */
-/*    EXPECT_GE(-1, dlt_daemon_context_del(&daemon, daecontext, 0)); */
-/*    EXPECT_LE(0, dlt_daemon_application_del(&daemon, app, 0)); */
-/*    EXPECT_LE(0, dlt_daemon_contexts_clear(&daemon, 0)); */
-/*    EXPECT_LE(0, dlt_daemon_applications_clear(&daemon, 0)); */
-
-    /* Verbose != 0 or 1 */
-/*    app = dlt_daemon_application_add(&daemon, apid, 0, desc, 0); */
-/*    daecontext = dlt_daemon_context_add(&daemon,apid,ctid,DLT_LOG_DEFAULT,DLT_TRACE_STATUS_DEFAULT,0,0,desc,0); */
-/*    EXPECT_GE(-1, dlt_daemon_context_del(&daemon, daecontext, 123456789)); */
-/*    dlt_daemon_application_del(&daemon, app, 0); */
-/*    dlt_daemon_contexts_clear(&daemon, 0); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-/*    EXPECT_EQ(0, dlt_daemon_free(&daemon, 0)); */
-}
 TEST(t_dlt_daemon_context_del, nullpointer)
 {
     DltDaemon daemon;
@@ -1011,8 +801,6 @@ TEST(t_dlt_daemon_context_del, nullpointer)
     EXPECT_GE(-1, dlt_daemon_context_del(&daemon, NULL, NULL, 0));
 }
 /* End Method: dlt_daemon_common::dlt_daemon_context_del */
-
-
 
 
 /* Begin Method: dlt_daemon_common::dlt_daemon_context_find */
@@ -1203,36 +991,13 @@ TEST(t_dlt_daemon_contexts_clear, normal)
     EXPECT_LE(0, dlt_daemon_applications_clear(&daemon, ecu, 0));
     EXPECT_EQ(0, dlt_daemon_free(&daemon, 0));
 }
-TEST(t_dlt_daemon_contexts_clear, abnormal)
-{
-/*    DltDaemon daemon; */
-/*    ID4 apid = "TES"; */
-/*    ID4 ctid = "CON"; */
-/*    char desc[255] = "TEST dlt_daemon_context_add"; */
-/*    DltDaemonContext *daecontext = NULL; */
-/*    DltDaemonApplication *app = NULL; */
 
-    /* No context added */
-/*    EXPECT_EQ(0, dlt_daemon_init(&daemon, DLT_DAEMON_RINGBUFFER_MIN_SIZE, DLT_DAEMON_RINGBUFFER_MAX_SIZE, DLT_DAEMON_RINGBUFFER_STEP_SIZE, DLT_RUNTIME_DEFAULT_DIRECTORY,DLT_LOG_INFO, DLT_TRACE_STATUS_OFF,0,0)); */
-/*    EXPECT_GE(-1, dlt_daemon_contexts_clear(&daemon, 0)); */
-
-    /* Verbose != 0 or 1 */
-/*    app = dlt_daemon_application_add(&daemon, apid, 0, desc, 0); */
-/*    daecontext = dlt_daemon_context_add(&daemon,apid,ctid,DLT_LOG_DEFAULT,DLT_TRACE_STATUS_DEFAULT,0,0,desc,0); */
-/*    dlt_daemon_context_del(&daemon, daecontext, 0); */
-/*    dlt_daemon_application_del(&daemon, app, 0); */
-/*    EXPECT_LE(0, dlt_daemon_contexts_clear(&daemon, 123456789)); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-/*    EXPECT_EQ(0, dlt_daemon_free(&daemon, 0)); */
-}
 TEST(t_dlt_daemon_contexts_clear, nullpointer)
 {
     /* NULL-Pointer */
     EXPECT_GE(-1, dlt_daemon_contexts_clear(NULL, NULL, 0));
 }
 /* End Method: dlt_daemon_common::dlt_daemon_contexts_clear */
-
-
 
 
 /* Begin Method: dlt_daemon_common::dlt_daemon_contexts_invalidate_fd */
@@ -1274,29 +1039,7 @@ TEST(t_dlt_daemon_contexts_invalidate_fd, normal)
     EXPECT_LE(0, dlt_daemon_applications_clear(&daemon, ecu, 0));
     EXPECT_EQ(0, dlt_daemon_free(&daemon, 0));
 }
-TEST(t_dlt_daemon_contexts_invalidate_fd, abnormal)
-{
-/*    DltDaemon daemon; */
-/*    ID4 apid = "TES"; */
-/*    ID4 ctid = "CON"; */
-/*    char desc[255] = "TEST dlt_daemon_context_add"; */
-/*    DltDaemonContext *daecontext = NULL; */
-/*    DltDaemonApplication *app = NULL; */
 
-    /* Uninitialized */
-/*    EXPECT_EQ(0, dlt_daemon_init(&daemon, DLT_DAEMON_RINGBUFFER_MIN_SIZE, DLT_DAEMON_RINGBUFFER_MAX_SIZE, DLT_DAEMON_RINGBUFFER_STEP_SIZE, DLT_RUNTIME_DEFAULT_DIRECTORY,DLT_LOG_INFO, DLT_TRACE_STATUS_OFF,0,0)); */
-/*    EXPECT_GE(-1, dlt_daemon_contexts_invalidate_fd(&daemon, app->user_handle, 0)); */
-
-    /* Verbose != 0 or 1 */
-/*    app = dlt_daemon_application_add(&daemon, apid, 0, desc, 0); */
-/*    daecontext = dlt_daemon_context_add(&daemon,apid,ctid,DLT_LOG_DEFAULT,DLT_TRACE_STATUS_DEFAULT,0,0,desc,0); */
-/*    EXPECT_GE(-1, dlt_daemon_contexts_invalidate_fd(&daemon, app->user_handle, 123456789)); */
-/*    dlt_daemon_context_del(&daemon, daecontext, 0); */
-/*    dlt_daemon_application_del(&daemon, app, 0); */
-/*    dlt_daemon_contexts_clear(&daemon, 0); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-/*    EXPECT_EQ(0, dlt_daemon_free(&daemon, 0)); */
-}
 TEST(t_dlt_daemon_contexts_invalidate_fd, nullpointer)
 {
     /* NULL-Pointer */
@@ -1347,39 +1090,7 @@ TEST(t_dlt_daemon_contexts_save, normal)
     EXPECT_LE(0, dlt_daemon_applications_clear(&daemon, ecu, 0));
     EXPECT_EQ(0, dlt_daemon_free(&daemon, 0));
 }
-TEST(t_dlt_daemon_contexts_save, abnormal)
-{
-/*    DltDaemon daemon; */
-/*    ID4 apid = "TES"; */
-/*    ID4 ctid = "CON"; */
-/*    char desc[255] = "TEST dlt_daemon_context_add"; */
-/*    DltDaemonContext *daecontext = NULL; */
-/*    DltDaemonApplication *app = NULL; */
-/*    const char * filename = "/tmp/dlt-runtime-context.cfg"; */
 
-    /* Uninitialized */
-/*    EXPECT_EQ(0, dlt_daemon_init(&daemon, DLT_DAEMON_RINGBUFFER_MIN_SIZE, DLT_DAEMON_RINGBUFFER_MAX_SIZE, DLT_DAEMON_RINGBUFFER_STEP_SIZE, DLT_RUNTIME_DEFAULT_DIRECTORY,DLT_LOG_INFO, DLT_TRACE_STATUS_OFF,0,0)); */
-/*    EXPECT_GE(-1, dlt_daemon_contexts_save(&daemon, filename, 0)); */
-
-    /* Verbose != 1 or 0, expect error */
-/*    app = dlt_daemon_application_add(&daemon, apid, 0, desc, 0); */
-/*    daecontext = dlt_daemon_context_add(&daemon,apid,ctid,DLT_LOG_DEFAULT,DLT_TRACE_STATUS_DEFAULT,0,0,desc,0); */
-/*    EXPECT_GE(-1, dlt_daemon_contexts_save(&daemon, filename, 123456789)); */
-/*    dlt_daemon_context_del(&daemon, daecontext, 0); */
-/*    dlt_daemon_application_del(&daemon, app, 0); */
-/*    dlt_daemon_contexts_clear(&daemon, 0); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-
-    /* Wrong path filename */
-/*    app = dlt_daemon_application_add(&daemon, apid, 0, desc, 0); */
-/*    daecontext = dlt_daemon_context_add(&daemon,apid,ctid,DLT_LOG_DEFAULT,DLT_TRACE_STATUS_DEFAULT,0,0,desc,0); */
-/*    EXPECT_GE(-1, dlt_daemon_contexts_save(&daemon, (char *) "PATCH_NOT_EXISTS", 0)); */
-/*    dlt_daemon_context_del(&daemon, daecontext, 0); */
-/*    dlt_daemon_application_del(&daemon, app, 0); */
-/*    dlt_daemon_contexts_clear(&daemon, 0); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-/*    EXPECT_EQ(0, dlt_daemon_free(&daemon, 0)); */
-}
 TEST(t_dlt_daemon_contexts_save, nullpointer)
 {
     DltDaemon daemon;
@@ -1391,8 +1102,6 @@ TEST(t_dlt_daemon_contexts_save, nullpointer)
     EXPECT_GE(-1, dlt_daemon_contexts_save(&daemon, NULL, 0));
 }
 /* End Method: dlt_daemon_common::dlt_daemon_contexts_save */
-
-
 
 
 /* Begin Method: dlt_daemon_common::dlt_daemon_contexts_load */
@@ -1435,39 +1144,7 @@ TEST(t_dlt_daemon_contexts_load, normal)
     EXPECT_LE(0, dlt_daemon_applications_clear(&daemon, ecu, 0));
     EXPECT_EQ(0, dlt_daemon_free(&daemon, 0));
 }
-TEST(t_dlt_daemon_contexts_load, abnormal)
-{
-/*    DltDaemon daemon; */
-/*    ID4 apid = "TES"; */
-/*    ID4 ctid = "CON"; */
-/*    char desc[255] = "TEST dlt_daemon_context_add"; */
-/*    DltDaemonContext *daecontext = NULL; */
-/*    DltDaemonApplication *app = NULL; */
-/*    const char * filename = "/tmp/dlt-runtime-context.cfg"; */
 
-    /* Uninitialized */
-/*    EXPECT_EQ(0, dlt_daemon_init(&daemon, DLT_DAEMON_RINGBUFFER_MIN_SIZE, DLT_DAEMON_RINGBUFFER_MAX_SIZE, DLT_DAEMON_RINGBUFFER_STEP_SIZE, DLT_RUNTIME_DEFAULT_DIRECTORY,DLT_LOG_INFO, DLT_TRACE_STATUS_OFF,0,0)); */
-/*    EXPECT_GE(-1, dlt_daemon_contexts_load(&daemon, filename, 0)); */
-
-    /* Verbose != 1 or 0, expect error */
-/*    app = dlt_daemon_application_add(&daemon, apid, 0, desc, 0); */
-/*    daecontext = dlt_daemon_context_add(&daemon,apid,ctid,DLT_LOG_DEFAULT,DLT_TRACE_STATUS_DEFAULT,0,0,desc,0); */
-/*    EXPECT_GE(-1, dlt_daemon_contexts_load(&daemon, filename, 123456789)); */
-/*    dlt_daemon_context_del(&daemon, daecontext, 0); */
-/*    dlt_daemon_application_del(&daemon, app, 0); */
-/*    dlt_daemon_contexts_clear(&daemon, 0); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-
-    /* Wrong path filename */
-/*    app = dlt_daemon_application_add(&daemon, apid, 0, desc, 0); */
-/*    daecontext = dlt_daemon_context_add(&daemon,apid,ctid,DLT_LOG_DEFAULT,DLT_TRACE_STATUS_DEFAULT,0,0,desc,0); */
-/*    EXPECT_GE(-1, dlt_daemon_contexts_load(&daemon, (char *) "PATCH_NOT_EXISTS", 0)); */
-/*    dlt_daemon_context_del(&daemon, daecontext, 0); */
-/*    dlt_daemon_application_del(&daemon, app, 0); */
-/*    dlt_daemon_contexts_clear(&daemon, 0); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-/*    EXPECT_EQ(0, dlt_daemon_free(&daemon, 0)); */
-}
 TEST(t_dlt_daemon_contexts_load, nullpointer)
 {
     DltDaemon daemon;
@@ -1482,13 +1159,9 @@ TEST(t_dlt_daemon_contexts_load, nullpointer)
 
 
 
-
-
 /*##############################################################################################################################*/
 /*##############################################################################################################################*/
 /*##############################################################################################################################*/
-
-
 
 
 /* Begin Method: dlt_daemon_common::dlt_daemon_user_send_all_log_state */
@@ -1590,38 +1263,7 @@ TEST(t_dlt_daemon_user_send_log_level, normal)
     EXPECT_LE(0, dlt_daemon_applications_clear(&daemon, ecu, 0));
     EXPECT_EQ(0, dlt_daemon_free(&daemon, 0));
 }
-TEST(t_dlt_daemon_user_send_log_level, abnormal)
-{
-/*    DltDaemon daemon; */
-/*    ID4 apid = "TES"; */
-/*    ID4 ctid = "CON"; */
-/*    char desc[255] = "TEST dlt_daemon_context_add"; */
-/*    DltDaemonContext *daecontext = NULL; */
-/*    DltDaemonApplication *app = NULL; */
 
-    /* Uninitialized */
-/*    EXPECT_EQ(0, dlt_daemon_init(&daemon, DLT_DAEMON_RINGBUFFER_MIN_SIZE, DLT_DAEMON_RINGBUFFER_MAX_SIZE, DLT_DAEMON_RINGBUFFER_STEP_SIZE, DLT_RUNTIME_DEFAULT_DIRECTORY,DLT_LOG_INFO, DLT_TRACE_STATUS_OFF,0,0)); */
-/*    EXPECT_GE(-1, dlt_daemon_user_send_log_level(&daemon, daecontext, 0)); */
-
-    /* File Handler <= 0 */
-/*    app = dlt_daemon_application_add(&daemon, apid, 0, desc, 0); */
-/*    daecontext = dlt_daemon_context_add(&daemon,apid,ctid,DLT_LOG_DEFAULT,DLT_TRACE_STATUS_DEFAULT,0,-1,desc,0); */
-/*    EXPECT_GE(-1, dlt_daemon_user_send_log_level(&daemon, daecontext, 0)); */
-/*    EXPECT_LE(0, dlt_daemon_context_del(&daemon, daecontext, 0)); */
-/*    EXPECT_LE(0, dlt_daemon_application_del(&daemon, app, 0)); */
-/*    EXPECT_LE(0, dlt_daemon_contexts_clear(&daemon, 0)); */
-/*    EXPECT_LE(0, dlt_daemon_applications_clear(&daemon, 0)); */
-
-    /* Verbose != 0 or 1 */
-/*    app = dlt_daemon_application_add(&daemon, apid, 0, desc, 0); */
-/*    daecontext = dlt_daemon_context_add(&daemon,apid,ctid,DLT_LOG_DEFAULT,DLT_TRACE_STATUS_DEFAULT,0,1,desc,0); */
-/*    EXPECT_GE(-1, dlt_daemon_user_send_log_level(&daemon, daecontext, 123456789)); */
-/*    dlt_daemon_context_del(&daemon, daecontext, 0); */
-/*    dlt_daemon_application_del(&daemon, app, 0); */
-/*    dlt_daemon_contexts_clear(&daemon, 0); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-/*    EXPECT_EQ(0, dlt_daemon_free(&daemon, 0)); */
-}
 TEST(t_dlt_daemon_user_send_log_level, nullpointer)
 {
     DltDaemon daemon;
@@ -1660,62 +1302,9 @@ TEST(t_dlt_daemon_user_send_log_state, normal)
     dlt_set_id(daemon.ecuid, ecu);
     EXPECT_EQ(0, dlt_daemon_init_user_information(&daemon, &gateway, 0, 0));
     EXPECT_EQ(DLT_RETURN_OK, strncmp(daemon.ecuid, daemon.user_list[0].ecu, DLT_ID_SIZE));
-/*    open(filename, O_RDWR |O_NONBLOCK); */
-/*    dlt_daemon_init(&daemon, DLT_DAEMON_RINGBUFFER_MIN_SIZE, DLT_DAEMON_RINGBUFFER_MAX_SIZE, DLT_DAEMON_RINGBUFFER_STEP_SIZE, "",0); */
-/*    app = dlt_daemon_application_add(&daemon, apid, pid, desc, 0); */
-/*    //printf("### USERHANDLE=%i\n", app->user_handle); */
-/*    daecontext = dlt_daemon_context_add(&daemon,apid,ctid,DLT_LOG_DEFAULT,DLT_TRACE_STATUS_DEFAULT,0,0,desc,0); */
-/*    EXPECT_GE(0, dlt_daemon_user_send_log_state(&daemon, app, 0)); */
-/*    EXPECT_LE(0, dlt_daemon_context_del(&daemon, daecontext, 0)); */
-/*    EXPECT_LE(0, dlt_daemon_application_del(&daemon, app, 0)); */
-/*    EXPECT_LE(0, dlt_daemon_contexts_clear(&daemon, 0)); */
-/*    EXPECT_LE(0, dlt_daemon_applications_clear(&daemon, 0)); */
-/*    EXPECT_LE(0, close(app->user_handle)); */
     EXPECT_EQ(0, dlt_daemon_free(&daemon, 0));
 }
-TEST(t_dlt_daemon_user_send_log_state, abnormal)
-{
-/*    DltDaemon daemon; */
-/*    ID4 apid = "TES"; */
-/*    ID4 ctid = "CON"; */
-/*    char desc[255] = "TEST dlt_daemon_context_add"; */
-/*    DltDaemonContext *daecontext = NULL; */
-/*    DltDaemonApplication *app = NULL; */
-/*    pid_t pid = 18166; */
-/*    char filename[DLT_DAEMON_COMMON_TEXTBUFSIZE+1]; */
-/*    snprintf(filename,DLT_DAEMON_COMMON_TEXTBUFSIZE,"%s/dlt%d",DLT_USER_DIR,pid); */
 
-    /*Uninitialized */
-/*    EXPECT_EQ(0, dlt_daemon_init(&daemon, DLT_DAEMON_RINGBUFFER_MIN_SIZE, DLT_DAEMON_RINGBUFFER_MAX_SIZE, DLT_DAEMON_RINGBUFFER_STEP_SIZE, DLT_RUNTIME_DEFAULT_DIRECTORY,DLT_LOG_INFO, DLT_TRACE_STATUS_OFF,0,0)); */
-/*    EXPECT_GE(-1, dlt_daemon_user_send_log_state(&daemon, app, 0)); */
-
-    /* No Pipe open */
-    /*open(filename, O_RDWR |O_NONBLOCK); */
-/*    dlt_daemon_init(&daemon, DLT_DAEMON_RINGBUFFER_MIN_SIZE, DLT_DAEMON_RINGBUFFER_MAX_SIZE, DLT_DAEMON_RINGBUFFER_STEP_SIZE, "",0); */
-/*    app = dlt_daemon_application_add(&daemon, apid, pid, desc, 0); */
-    /*printf("### USERHANDLE=%i\n", app->user_handle); */
-/*    daecontext = dlt_daemon_context_add(&daemon,apid,ctid,DLT_LOG_DEFAULT,DLT_TRACE_STATUS_DEFAULT,0,0,desc,0); */
-/*    EXPECT_GE(-1, dlt_daemon_user_send_log_state(&daemon, app, 0)); */
-/*    EXPECT_LE(0, dlt_daemon_context_del(&daemon, daecontext, 0)); */
-/*    EXPECT_LE(0, dlt_daemon_application_del(&daemon, app, 0)); */
-/*    EXPECT_LE(0, dlt_daemon_contexts_clear(&daemon, 0)); */
-/*    EXPECT_LE(0, dlt_daemon_applications_clear(&daemon, 0)); */
-/*    EXPECT_LE(0, close(app->user_handle)); */
-
-    /* Verbose != 1 or 0 */
-/*    open(filename, O_RDWR |O_NONBLOCK); */
-/*    dlt_daemon_init(&daemon, DLT_DAEMON_RINGBUFFER_MIN_SIZE, DLT_DAEMON_RINGBUFFER_MAX_SIZE, DLT_DAEMON_RINGBUFFER_STEP_SIZE, "",0); */
-/*    app = dlt_daemon_application_add(&daemon, apid, pid, desc, 0); */
-/*    //printf("### USERHANDLE=%i\n", app->user_handle); */
-/*    daecontext = dlt_daemon_context_add(&daemon,apid,ctid,DLT_LOG_DEFAULT,DLT_TRACE_STATUS_DEFAULT,0,0,desc,0); */
-/*    EXPECT_GE(-1, dlt_daemon_user_send_log_state(&daemon, app, 123456789)); */
-/*    dlt_daemon_context_del(&daemon, daecontext, 0); */
-/*    dlt_daemon_application_del(&daemon, app, 0); */
-/*    dlt_daemon_contexts_clear(&daemon, 0); */
-/*    dlt_daemon_applications_clear(&daemon, 0); */
-/*    close(app->user_handle); */
-/*    EXPECT_EQ(0, dlt_daemon_free(&daemon, 0)); */
-}
 TEST(t_dlt_daemon_user_send_log_state, nullpointer)
 {
     DltDaemon daemon;
@@ -1730,9 +1319,6 @@ TEST(t_dlt_daemon_user_send_log_state, nullpointer)
 /*##############################################################################################################################*/
 /*##############################################################################################################################*/
 /*##############################################################################################################################*/
-
-
-
 
 int main(int argc, char **argv)
 {
