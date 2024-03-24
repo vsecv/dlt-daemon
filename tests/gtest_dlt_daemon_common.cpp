@@ -550,8 +550,8 @@ TEST(t_dlt_daemon_context_add, normal)
 
     DltDaemon daemon;
     DltGateway gateway;
-    ID4 apid = "TES";
-    ID4 ctid = "CON";
+    char apid[4] = "TES";
+    char ctid[4] = "CON";
     char desc[255] = "TEST dlt_daemon_context_add";
     DltDaemonContext *daecontext = NULL;
     DltDaemonApplication *app = NULL;
@@ -585,8 +585,8 @@ TEST(t_dlt_daemon_context_add, abnormal)
 {
     DltDaemon daemon;
     DltGateway gateway;
-    ID4 apid = "TES";
-    ID4 ctid = "CON";
+    char apid[4] = "TES";
+    char ctid[4] = "CON";
     char desc[255] = "TEST dlt_daemon_context_add";
     DltDaemonContext *daecontext = NULL;
     DltDaemonApplication *app = NULL;
@@ -716,8 +716,8 @@ TEST(t_dlt_daemon_context_add, nullpointer)
 {
     DltDaemon daemon;
     DltGateway gateway;
-    ID4 apid = "TES";
-    ID4 ctid = "CON";
+    char apid[4] = "TES";
+    char ctid[4] = "CON";
     char ecu[] = "ECU1";
     char desc[255] = "TEST dlt_daemon_context_add";
 
@@ -755,8 +755,8 @@ TEST(t_dlt_daemon_context_del, normal)
 {
     DltDaemon daemon;
     DltGateway gateway;
-    ID4 apid = "TES";
-    ID4 ctid = "CON";
+    char apid[4] = "TES";
+    char ctid[4] = "CON";
     char desc[255] = "TEST dlt_daemon_context_add";
     DltDaemonContext *daecontext = NULL;
     DltDaemonApplication *app = NULL;
@@ -808,8 +808,8 @@ TEST(t_dlt_daemon_context_find, normal)
 {
     DltDaemon daemon;
     DltGateway gateway;
-    ID4 apid = "TES";
-    ID4 ctid = "CON";
+    char apid[4] = "TES";
+    char ctid[4] = "CON";
     char desc[255] = "TEST dlt_daemon_context_add";
     DltDaemonContext *daecontext = NULL;
     DltDaemonApplication *app = NULL;
@@ -850,8 +850,8 @@ TEST(t_dlt_daemon_context_find, abnormal)
 {
     DltDaemon daemon;
     DltGateway gateway;
-    ID4 apid = "TES";
-    ID4 ctid = "CON";
+    char apid[4] = "TES";
+    char ctid[4] = "CON";
     char desc[255] = "TEST dlt_daemon_context_add";
     DltDaemonContext *daecontext = NULL;
     DltDaemonApplication *app = NULL;
@@ -935,8 +935,8 @@ TEST(t_dlt_daemon_context_find, abnormal)
 TEST(t_dlt_daemon_context_find, nullpointer)
 {
     DltDaemon daemon;
-    ID4 apid = "TES";
-    ID4 ctid = "CON";
+    char apid[4] = "TES";
+    char ctid[4] = "CON";
     ID4 ecu = "ECU";
 
     EXPECT_EQ((DltDaemonContext *)0, dlt_daemon_context_find(NULL, NULL, NULL, NULL, 0));
@@ -958,8 +958,8 @@ TEST(t_dlt_daemon_contexts_clear, normal)
 {
     DltDaemon daemon;
     DltGateway gateway;
-    ID4 apid = "TES";
-    ID4 ctid = "CON";
+    char apid[4] = "TES";
+    char ctid[4] = "CON";
     char desc[255] = "TEST dlt_daemon_context_add";
     DltDaemonContext *daecontext = NULL;
     DltDaemonApplication *app = NULL;
@@ -1005,8 +1005,8 @@ TEST(t_dlt_daemon_contexts_invalidate_fd, normal)
 {
     DltDaemon daemon;
     DltGateway gateway;
-    ID4 apid = "TES";
-    ID4 ctid = "CON";
+    char apid[4] = "TES";
+    char ctid[4] = "CON";
     char desc[255] = "TEST dlt_daemon_context_add";
     DltDaemonContext *daecontext = NULL;
     DltDaemonApplication *app = NULL;
@@ -1055,8 +1055,8 @@ TEST(t_dlt_daemon_contexts_save, normal)
 {
     DltDaemon daemon;
     DltGateway gateway;
-    ID4 apid = "TES";
-    ID4 ctid = "CON";
+    char apid[4] = "TES";
+    char ctid[4] = "CON";
     char desc[255] = "TEST dlt_daemon_context_add";
     DltDaemonContext *daecontext = NULL;
     DltDaemonApplication *app = NULL;
@@ -1109,8 +1109,8 @@ TEST(t_dlt_daemon_contexts_load, normal)
 {
     DltDaemon daemon;
     DltGateway gateway;
-    ID4 apid = "TES";
-    ID4 ctid = "CON";
+    char apid[4] = "TES";
+    char ctid[4] = "CON";
     char desc[255] = "TEST dlt_daemon_context_add";
     DltDaemonContext *daecontext = NULL;
     DltDaemonApplication *app = NULL;
@@ -1229,8 +1229,8 @@ TEST(t_dlt_daemon_user_send_log_level, normal)
 {
     DltDaemon daemon;
     DltGateway gateway;
-    ID4 apid = "TES";
-    ID4 ctid = "CON";
+    char apid[4] = "TES";
+    char ctid[4] = "CON";
     char desc[255] = "TEST dlt_daemon_context_add";
     DltDaemonContext *daecontext = NULL;
     DltDaemonApplication *app = NULL;
@@ -1284,8 +1284,8 @@ TEST(t_dlt_daemon_user_send_log_state, normal)
 {
     DltDaemon daemon;
     DltGateway gateway;
-/*    ID4 apid = "TES"; */
-/*    ID4 ctid = "CON"; */
+/*    char apid[4] = "TES"; */
+/*    char ctid[4] = "CON"; */
 /*    char desc[255] = "TEST dlt_daemon_context_add"; */
 /*    DltDaemonContext *daecontext; */
 /*    DltDaemonApplication *app; */
