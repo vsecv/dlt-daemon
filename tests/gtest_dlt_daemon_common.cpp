@@ -937,7 +937,7 @@ TEST(t_dlt_daemon_context_find, nullpointer)
     DltDaemon daemon;
     char apid[4] = "TES";
     char ctid[4] = "CON";
-    ID4 ecu = "ECU";
+    char ecu[4] = "ECU";
 
     EXPECT_EQ((DltDaemonContext *)0, dlt_daemon_context_find(NULL, NULL, NULL, NULL, 0));
     EXPECT_EQ((DltDaemonContext *)0, dlt_daemon_context_find(NULL, NULL, ctid, NULL, 0));
